@@ -48,6 +48,9 @@ const Navigation = () => {
                 <NavLink tag={Link} to="/books-form">Nuevo Libro</NavLink>
               </NavItem>
               <NavItem>
+                <NavLink tag={Link} to="/students-form">Nuevo Estudiante</NavLink>
+              </NavItem>
+              <NavItem>
                 <NavLink tag={Link} onClick= {logout}>Logout</NavLink>
               </NavItem>
           </Nav>
