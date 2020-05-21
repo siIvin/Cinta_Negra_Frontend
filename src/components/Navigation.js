@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
-import { AuthContext } from '../context/AuthContext'
+import { AuthContext } from '../context/AuthContext';
+import {useHistory} from 'react-router-dom'
 import {
   Collapse,
   Navbar,
@@ -18,51 +19,71 @@ const Navigation = () => {
   console.log(AuthContext)
   const { isAuth } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
+  const {removeTokenAndLogout}= useContext(AuthContext);
+  const history = useHistory()
+
 
   const toggle = () => setIsOpen(!isOpen);
-
-
-const renderNavigation = () => {
-
-  return isAuth
+  const logout= ()=>{
+    removeTokenAndLogout()
+    history.push('/login')
     
-    ? (<div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">Biblioteca</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink tag={Link} to="/students">Estudiantes</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink tag={Link} to="/books">Libros</NavLink>
-            </NavItem>
-          </Nav>
-        </Collapse>
-      </Navbar>
-    </div>)
+  }
+  const authNavbar = () => {
 
-    : (<div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">Biblioteca</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink tag={Link} to="/login">login</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink tag={Link} to="/signup">signup</NavLink>
-            </NavItem>
+    return (
+      <div>
+        <Navbar color="light" light expand="md">
+          <NavbarBrand href="/">Biblioteca</NavbarBrand>
+          <NavbarToggler onClick={toggle} />
+          <Collapse isOpen={isOpen} navbar>
+            <Nav className="mr-auto" navbar>
+              <NavItem>
+                <NavLink tag={Link} to="/students">Estudiantes</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} to="/books">Libros</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} to="/books-form">Nuevo Libro</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} onClick= {logout}>Logout</NavLink>
+              </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
-    </div>
-    )
+    </div >)
+  }
+
+  const publicNavbar = () => {
+    return (
+   <div>
+  <Navbar color="light" light expand="md">
+    <NavbarBrand href="/">Biblioteca</NavbarBrand>
+    <NavbarToggler onClick={toggle} />
+    <Collapse isOpen={isOpen} navbar>
+      <Nav className="mr-auto" navbar>
+        <NavItem>
+          <NavLink tag={Link} to="/login">login</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink tag={Link} to="/signup">signup</NavLink>
+        </NavItem>
+      </Nav>
+    </Collapse>
+  </Navbar>
+</div>)
 }
 
-return(
+
+const renderNavigation =()=>{
+  return isAuth
+  ? authNavbar()
+  : publicNavbar()
+}
+
+return (
   <React.Fragment>
     {renderNavigation()}
   </React.Fragment>
