@@ -29,6 +29,7 @@ const Login = (props) => {
     return (
         <React.Fragment>
             <div className="main-login-signup">
+            <div className="title">Iniciar Sesión</div>
             <div className="inner-banner">
                 <Form onSubmit={handleSubmit}>
                     <Col md={8}>

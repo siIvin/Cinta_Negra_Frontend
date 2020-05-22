@@ -49,7 +49,7 @@ const Signup = () => {
     return (
         <React.Fragment>
             <div className="main-login-signup">
-            <h3>Registrate a la biblioteca</h3>
+            <div className="title">Registrate</div>
             <Form onSubmit={handleSubmit}>
                     <Col md ={8}>
                         <FormGroup>
