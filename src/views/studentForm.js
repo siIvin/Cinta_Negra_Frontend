@@ -13,9 +13,6 @@ const StudentForms = () => {
     const [readBooks, setreadBooks] = useState('');
 
 
-
-
-
     const handleSubmit = async (e) => {
         e.preventDefault()
         const jsonSend = {
@@ -34,6 +31,7 @@ const StudentForms = () => {
             alert('Error en registro')
         }
     }
+
     return (
         <React.Fragment>
             <h3>Nuevo estudiante</h3>
@@ -76,11 +74,12 @@ const StudentForms = () => {
                 </Col>
                 <FormGroup>
                     <Label>Imagen de Perfil</Label>
-                    <Input 
-                    type="file" 
-                    id="profileImg" 
-                    name="profileImg" 
-                    placeholder="Imagen" />
+                    <Input
+                        type="file"
+                        id="profileImg"
+                        name="profileImg"
+                        placeholder="Imagen"
+                        onChange={(e)=>setprofileImg(e.target.file)}/>
                 </FormGroup>
                 <Button>Enviar</Button>
             </Form>
