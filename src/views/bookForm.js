@@ -63,7 +63,7 @@ const BookForms = () => {
                             onChange={(e) => setPages(e.target.value)} />
                     </FormGroup>
                 </Col>
-                <Button>Enviar</Button>
+                <Button>Enviar </Button>
             </Form>
         </React.Fragment>
     )
