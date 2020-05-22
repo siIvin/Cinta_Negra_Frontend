@@ -6,6 +6,18 @@
     box-shadow: 0px 5px 40px 15px #004e66;
 }
 
+.main-login-signup .title {
+    display: block;
+    position: absolute;
+    font-size: 35px;
+    top: 50px;
+    left: 50px;
+    font-weight: 900;
+    text-decoration: overline;
+    text-transform: uppercase;
+    color: #004e66;
+}
+
 .dashboard {
     margin: 70px 30px;
     border-radius: 25px;
