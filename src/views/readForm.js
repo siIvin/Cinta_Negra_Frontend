@@ -4,7 +4,6 @@ import { AuthContext } from '../context/AuthContext'
 
 const ReadForm = (props) => {
 
-    let books;
     const propsState = props.location.state;
     // id is in propsState.id;
     // const {axiosInstance}= useContext(AuthContext)
@@ -14,7 +13,6 @@ const ReadForm = (props) => {
     // })
 
 
-    const BookList = () => {
         const { axiosInstance } = useContext(AuthContext);
         const [books, setBooks] = useState([])
         const getBooks = () => axiosInstance.get('/api/v1/books');
@@ -23,26 +21,24 @@ const ReadForm = (props) => {
             getBooks()
                 .then((response) => {
                     const books = response.data;
+
                     setBooks(books);
                     console.log(books)
                     console.log('Hola')
 
                     //  setText (`Hay ${books.length} libros disponibles`)
                 })
-                .catch ((error) => (error))
+                .catch((error) => (error))
         }, [])
+    
+
+    
 
 
-
-
-        }
-
-        BookList()
-
-        // books.map(book) => {
+        // books.map(book => {
         //     return book.title
         // }
-        
+
 //render
 
 //TODO - create method to get all books, api and fill dropdown.}
@@ -81,39 +77,42 @@ const ReadForm = (props) => {
 
 // const ReadForm = (props) => {
 return (
-    <Form>
-        <FormGroup>
-            <Label>Nombre</Label>
-            <Input
-                type="text"
-                name="firstName"
-                id="firstName"
-                disabled="true"
-                value={propsState.firstName} />
-        </FormGroup>
-        <FormGroup>
-            <Label>Apellido</Label>
-            <Input
-                type="text"
-                name="lastName"
-                id="lastName"
-                disabled="true"
-                value={propsState.lastName} />
-        </FormGroup>
-        <FormGroup>
-            <Label for="exampleSelect">Escoge un libro </Label>
-            <Input type="select" onChange={BookList} name="select" id="exampleSelect">
-            </Input>
-        </FormGroup>
-        <FormGroup>
-            <Label for="exampleText">Text Area</Label>
-            <Input type="textarea" name="text" id="exampleText" />
-        </FormGroup>
+        <Form>
+            <FormGroup>
+                <Label>Nombre</Label>
+                <Input
+                    type="text"
+                    name="firstName"
+                    id="firstName"
+                    disabled="true"
+                    value={propsState.firstName} />
+            </FormGroup>
+            <FormGroup>
+                <Label>Apellido</Label>
+                <Input
+                    type="text"
+                    name="lastName"
+                    id="lastName"
+                    disabled="true"
+                    value={propsState.lastName} />
+            </FormGroup>
+            <FormGroup>
+                <Label for="exampleSelect">Escoge un libro </Label>
+                <Input type="select" name="select" id="exampleSelect">
+                {books.map((book) => {
+                    return <option
+                    value= {book._id}> {book.title} </option> })}
+                </Input>
+            </FormGroup>
+            <FormGroup>
+                <Label for="exampleText">Text Area</Label>
+                <Input type="textarea" name="text" id="exampleText" />
+            </FormGroup>
 
-        <Button>Submit</Button>
-    </Form>
-);
-    
-    }
+            <Button>Submit</Button>
+        </Form>
+    );
+
+}
 
 export default ReadForm;
