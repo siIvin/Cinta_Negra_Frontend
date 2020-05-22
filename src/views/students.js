@@ -13,6 +13,8 @@ const StudentList = () =>{
         getStudents()
         .then((response)=>{
             const students = response.data;
+            console.log('students')
+            console.log(students)
             setStudent (students);
             setText (`Hay ${students.length} inscritos a la biblioteca`)
         })
@@ -25,6 +27,7 @@ const StudentList = () =>{
                 return(  
                 <StudentCard
                 key ={student._id}
+                _id={student._id}
                 first_name= {student.first_name}
                 last_name ={student.last_name}
                 dateOfBirth = {student.dateOfBirth}/>
