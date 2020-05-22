@@ -4,6 +4,8 @@ import {
   CardTitle, CardSubtitle, Button
 } from 'reactstrap';
 
+import {useHistory} from 'react-router-dom'
+
 const StudentCard = (props) => {
   
   const studentAge=(dateOfBirth)=>{
@@ -12,6 +14,15 @@ const StudentCard = (props) => {
     const age = dateNow - new Date(dateOfBirth)
     return Math.floor(age/31536000000)
   }
+
+  const history = useHistory()
+
+  const newReading = () =>{
+      console.log('push de botton')
+      history.push('/new-reading-form')
+  }
+
+
 
   
 
@@ -23,7 +34,7 @@ const StudentCard = (props) => {
           <CardTitle>Nombre: {props.first_name}</CardTitle>
           <CardSubtitle>Apellido: {props.last_name}</CardSubtitle>
           <CardText>Edad: {studentAge(props.dateOfBirth)} años</CardText>
-          <Button>Nueva Lectura</Button>
+          <Button onClick = {newReading}>Nueva Lectura</Button>
         </CardBody>
       </Card>
     </div>
