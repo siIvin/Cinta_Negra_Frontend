@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios'
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { AuthContext } from '../context/AuthContext'
+import '../app.css';
 import {useHistory} from 'react-router-dom'
 
 const StudentForms = () => {
@@ -35,55 +36,58 @@ const StudentForms = () => {
 
     return (
         <React.Fragment>
-            <h3>Nuevo estudiante</h3>
-            <Form onSubmit={handleSubmit}>
-                <Col md={8}>
+            <div className="dashboard">
+            <div className="title">Nuevo Estudiante</div>
+            <div className="form">
+                <Form onSubmit={handleSubmit}>
+                    <Col md={8}>
+                        <FormGroup>
+                            <Label>Nombre</Label>
+                            <Input
+                                type="text"
+                                name="firstName"
+                                id="firstName"
+                                placeholder="Nombre"
+                                value={firstName}
+                                onChange={(e) => setfirstName(e.target.value)} />
+                        </FormGroup>
+                    </Col>
+                    <Col md={8}>
+                        <FormGroup>
+                            <Label>Apellido</Label>
+                            <Input
+                                type="text"
+                                name="lastName"
+                                id="lastName"
+                                placeholder="Apellido"
+                                value={lastName}
+                                onChange={(e) => setlastName(e.target.value)} />
+                        </FormGroup>
+                    </Col>
+                    <Col md={8}>
+                        <FormGroup>
+                            <Label>Fecha de namiento</Label>
+                            <Input
+                                type="date"
+                                name="dateOfBirth"
+                                id="dateofBirth"
+                                placeholder="Fecha de nacimiento"
+                                value={dateOfBirth}
+                                onChange={(e) => setDateOfBirth(e.target.value)} />
+                        </FormGroup>
+                    </Col>
                     <FormGroup>
-                        <Label>Nombre</Label>
-                        <Input
-                            type="text"
-                            name="firstName"
-                            id="firstName"
-                            placeholder="Nombre"
-                            value={firstName}
-                            onChange={(e) => setfirstName(e.target.value)} />
+                        <Label>Imagen de Perfil</Label>
+                        <Input 
+                        type="file" 
+                        id="profileImg" 
+                        name="profileImg" 
+                        placeholder="Imagen"/>
                     </FormGroup>
-                </Col>
-                <Col md={8}>
-                    <FormGroup>
-                        <Label>Apellido</Label>
-                        <Input
-                            type="text"
-                            name="lastName"
-                            id="lastName"
-                            placeholder="Apellido"
-                            value={lastName}
-                            onChange={(e) => setlastName(e.target.value)} />
-                    </FormGroup>
-                </Col>
-                <Col md={8}>
-                    <FormGroup>
-                        <Label>Fecha de namiento</Label>
-                        <Input
-                            type="date"
-                            name="dateOfBirth"
-                            id="dateofBirth"
-                            placeholder="Fecha de nacimiento"
-                            value={dateOfBirth}
-                            onChange={(e) => setDateOfBirth(e.target.value)} />
-                    </FormGroup>
-                </Col>
-                <FormGroup>
-                    <Label>Imagen de Perfil</Label>
-                    <Input
-                        type="file"
-                        id="profileImg"
-                        name="profileImg"
-                        placeholder="Imagen"
-                        onChange={(e)=>setprofileImg(e.target.file)}/>
-                </FormGroup>
-                <Button>Enviar</Button>
-            </Form>
+                    <Button>Enviar</Button>
+                </Form>
+            </div>
+            </div>
         </React.Fragment>
     )
 }

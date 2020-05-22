@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import axios from 'axios'
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import '../app.css'
+
 
 const Signup = () => {
     const [firstName, setFirstName] = useState('');
@@ -46,6 +48,7 @@ const Signup = () => {
     }
     return (
         <React.Fragment>
+            <div className="main-login-signup">
             <h3>Registrate a la biblioteca</h3>
             <Form onSubmit={handleSubmit}>
                     <Col md ={8}>
@@ -98,6 +101,7 @@ const Signup = () => {
                 </Col>
                 <Button>Enviar</Button>
             </Form>
+            </div>s
         </React.Fragment>
     )
 }

@@ -23,16 +23,19 @@ const StudentList = () =>{
 
     return(
         <React.Fragment>
-            {students.map((student)=>{
-                return(  
-                <StudentCard
-                key ={student._id}
-                _id={student._id}
-                first_name= {student.first_name}
-                last_name ={student.last_name}
-                dateOfBirth = {student.dateOfBirth}
-                readBooks = {student.readBooks}/>
-            )})}
+            <div className="dashboard">
+            <div className="title">Estudiantes</div>
+                {students.map((student)=>{
+                    return(  
+                    <StudentCard
+                    key ={student._id}
+                    _id={student._id}
+                    first_name= {student.first_name}
+                    last_name ={student.last_name}
+                    dateOfBirth = {student.dateOfBirth}
+                    readBooks = {student.readBooks}/>
+                )})}
+            </div>
         </React.Fragment>
     );
 

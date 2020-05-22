@@ -6,12 +6,12 @@ import {
 
 const BookCard = (props) => {
   return (
-    <div>
+    <div className="card-wrapper-book">
       <Card>
         <CardBody>
-          <CardTitle>Autor:{props.author}</CardTitle>
-          <CardSubtitle>Titulo:{props.title}</CardSubtitle>
-          <CardSubtitle>Páginas: {props.pages}</CardSubtitle>
+          <CardSubtitle><span className="label">Titulo:</span>{props.title}</CardSubtitle>
+          <CardTitle><span className="label">Autor:</span>{props.author}</CardTitle>
+          <CardText><span className="label">Páginas:</span>{props.pages}</CardText>
         </CardBody>
       </Card>
     </div>

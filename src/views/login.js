@@ -2,6 +2,8 @@
 import React, { useState, useContext } from 'react';
 import axios from 'axios'
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import '../app.css'
+
 import {AuthContext} from '../context/AuthContext'
 
 const Login = (props) => {
@@ -14,7 +16,7 @@ const Login = (props) => {
         e.preventDefault()
         const jsonSend = {email, password}
         try {
-            console.log(jsonSend)
+            console.log(jsonSend);
             const res = await axios.post('https://biblioteca-backend-cinta-negra.herokuapp.com/api/v1/users/login', jsonSend);
             setToken(res.data.token)
             alert('Hola ')
@@ -26,34 +28,40 @@ const Login = (props) => {
     }
     return (
         <React.Fragment>
-            <h3>Inicia Sesión</h3>
-            <Form onSubmit={handleSubmit}>
-                <Col md={8}>
-                    <FormGroup>
-                        <Label>Email</Label>
-                        <Input
-                            type="email"
-                            name="email"
-                            id="email"
-                            placeholder="correo electrónico"
-                            value={email}
-                            onChange={(e)=>setEmail(e.target.value)}/>
-                    </FormGroup>
-                </Col>
-                <Col md={8}>
-                    <FormGroup>
-                        <Label>Password</Label>
-                        <Input
-                            type="password"
-                            name="password"
-                            id="examplePassword"
-                            placeholder="contraseña"
-                            value={password}
-                            onChange={(e)=>setPassword(e.target.value)} />
-                    </FormGroup>
-                </Col>
-                <Button>Enviar</Button>
-            </Form>
+            <div className="main-login-signup">
+            <div className="inner-banner">
+                <Form onSubmit={handleSubmit}>
+                    <Col md={8}>
+                        <FormGroup>
+                            <Label>Email</Label>
+                            <Input
+                                type="email"
+                                name="email"
+                                id="email"
+                                placeholder="correo electrónico"
+                                value={email}
+                                onChange={(e)=>setEmail(e.target.value)}/>
+                        </FormGroup>
+                    </Col>
+                    <Col md={8}>
+                        <FormGroup>
+                            <Label>Password</Label>
+                            <Input
+                                type="password"
+                                name="password"
+                                id="examplePassword"
+                                placeholder="contraseña"
+                                value={password}
+                                onChange={(e)=>setPassword(e.target.value)} />
+                        </FormGroup>
+                    </Col>
+                    <Col md={8}>
+                        <Button>Iniciar Sesión</Button>
+                    </Col>
+                    
+                </Form>
+                </div>
+            </div>
         </React.Fragment>
     )
 }

@@ -27,7 +27,7 @@ const ReadForm = (props) => {
     }
 
     const changeBook = (e) =>{
-        console.log(e.value)
+        console.log(e)
     }
 
     
@@ -53,6 +53,10 @@ const ReadForm = (props) => {
 
 //TODO - onSave do a Patch with data and id propsState.id
 return (
+    <React.Fragment>
+            <div className="dashboard">
+            <div className="title">¡Libro leído!</div>
+            <div className="form">
         <Form onSubmit= {handleSubmit}>
             <FormGroup>
                 <Label>Nombre</Label>
@@ -76,7 +80,7 @@ return (
                 <Label for="exampleSelect">Escoge un libro </Label>
                 <Input type="select" name="select" id="exampleSelect" onChange={changeBook}>
                 {books.map((book) => {
-                    return <option
+                    return <option key={book._id}
                     value= {book._id}> {book.title} </option> })}
                 </Input>
             </FormGroup>
@@ -85,8 +89,11 @@ return (
                 <Input type="textarea" name="text" id="exampleText" />
             </FormGroup>
 
-            <Button>Submit</Button>
+            <Button>Guardar</Button>
         </Form>
+        </div>
+        </div>
+        </React.Fragment>
     );
 
 }

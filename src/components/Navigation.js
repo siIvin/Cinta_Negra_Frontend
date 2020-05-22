@@ -10,6 +10,7 @@ import {
   NavItem,
   NavLink,
 } from 'reactstrap';
+import '../app.css'
 
 import { Link } from 'react-router-dom';
 
@@ -32,26 +33,26 @@ const Navigation = () => {
   const authNavbar = () => {
 
     return (
-      <div>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">Biblioteca</NavbarBrand>
+      <div className="main-login-signup">
+        <Navbar light expand="md">
+          <NavbarBrand href="/">Biblioteca v0.1</NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <NavItem>
-                <NavLink tag={Link} to="/students">Estudiantes</NavLink>
+                <NavLink tag={Link} to="/students"><i class="fa fa-2x fa-users" /> <span> Estudiantes </span></NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} to="/books">Libros</NavLink>
+                <NavLink tag={Link} to="/books"><i class="fa fa-2x fa-book" /> <span> Libros </span></NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} to="/books-form">Nuevo Libro</NavLink>
+                <NavLink tag={Link} to="/students-form"><i class="fa fa-2x fa-user-plus" /> <span> Nuevo Estudiante </span></NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} to="/students-form">Nuevo Estudiante</NavLink>
+                <NavLink tag={Link} to="/books-form"><i class="fa fa-2x fa-plus-circle" /> <span> Nuevo Libro </span></NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} onClick= {logout}>Logout</NavLink>
+                <NavLink tag={Link} onClick= {logout}><i class="fa fa-2x fa-sign-out" /> <span> Logout </span></NavLink>
               </NavItem>
           </Nav>
         </Collapse>
@@ -61,17 +62,17 @@ const Navigation = () => {
 
   const publicNavbar = () => {
     return (
-   <div>
-  <Navbar color="light" light expand="md">
-    <NavbarBrand href="/">Biblioteca</NavbarBrand>
+   <div className="main-login-signup">
+  <Navbar light expand="md">
+    <NavbarBrand href="/">Biblioteca v0.1</NavbarBrand>
     <NavbarToggler onClick={toggle} />
     <Collapse isOpen={isOpen} navbar>
       <Nav className="mr-auto" navbar>
         <NavItem>
-          <NavLink tag={Link} to="/login">login</NavLink>
+          <NavLink tag={Link} to="/login"><i class="fa fa-2x fa-sign-in" /><span> Login </span></NavLink>
         </NavItem>
         <NavItem>
-          <NavLink tag={Link} to="/signup">signup</NavLink>
+          <NavLink tag={Link} to="/signup"><i class="fa fa-2x fa-plus-square" /><span> Signup </span></NavLink>
         </NavItem>
       </Nav>
     </Collapse>

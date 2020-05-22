@@ -20,13 +20,16 @@ const BookList = () =>{
 
     return(
         <React.Fragment>
-            {books.map((book)=>{
-                return  <BookCard
-                key ={book._id}
-                author= {book.author}
-                title ={book.title}
-                pages = {book.pages}/>
-            })}
+            <div className="dashboard">
+                <div className="title">Libros</div>
+                {books.map((book)=>{
+                    return  <BookCard
+                    key ={book._id}
+                    author= {book.author}
+                    title ={book.title}
+                    pages = {book.pages}/>
+                })}
+            </div>
         </React.Fragment>
     );
 

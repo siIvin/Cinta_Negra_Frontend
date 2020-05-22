@@ -25,7 +25,9 @@ const BookForms = () => {
     }
     return (
         <React.Fragment>
-            <h3>Inicia Sesión</h3>
+            <div className="dashboard">
+            <div className="title">Nuevo Libro</div>
+            <div className="form">
             <Form onSubmit={handleSubmit}>
                 <Col md={8}>
                     <FormGroup>
@@ -65,6 +67,8 @@ const BookForms = () => {
                 </Col>
                 <Button>Enviar </Button>
             </Form>
+            </div>
+            </div>
         </React.Fragment>
     )
 }
