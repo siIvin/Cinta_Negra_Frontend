@@ -3,18 +3,37 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { AuthContext } from '../context/AuthContext'
 
 const ReadForm = (props) => {
-
     const propsState = props.location.state;
-    // id is in propsState.id;
-    // const {axiosInstance}= useContext(AuthContext)
-    // axiosInstance.get('/api/v1/books').then(response => {
-    //     books =response.data
-    //     console.log(books)
-    // })
+    const { axiosInstance } = useContext(AuthContext);
+    const [books, setBooks] = useState([])
+    
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+ //       const readBook = [{book:}]
+        const jsonSend = {
+            first_name: propsState.firstName,
+            last_name: propsState.lastName,
+            dateOfBirth: propsState.dateOfBirth,
+            readBooks: []
+        }
+        try {
+            console.log(jsonSend)
+            await axiosInstance.patch('/api/v1/students/' + propsState.id, jsonSend);
+            alert('Lectura agregada')
+            console.log("respuesta")
+        } catch (error) {
+            alert('Error en registro')
+        }
+    }
+
+    const changeBook = (e) =>{
+        console.log(e.value)
+    }
+
+    
 
 
-        const { axiosInstance } = useContext(AuthContext);
-        const [books, setBooks] = useState([])
+       
         const getBooks = () => axiosInstance.get('/api/v1/books');
 
         useEffect(() => {
@@ -32,52 +51,9 @@ const ReadForm = (props) => {
         }, [])
     
 
-    
-
-
-        // books.map(book => {
-        //     return book.title
-        // }
-
-//render
-
-//TODO - create method to get all books, api and fill dropdown.}
 //TODO - onSave do a Patch with data and id propsState.id
-
-// const { isAuth, axiosInstance } = useContext(AuthContext)
-
-// const [readBooks, setReadBooks] = useState[''];
-
-/*  const handleSubmit = async (e) => {
-     e.preventDefault()
-     const jsonSend = {
-         first_name: firstName,
-         last_name: lastName,
-         dateOfBirth,
-         profile_img: profileImg,
-         readBooks: []
-     }
-     try {
-         console.log(jsonSend)
-         await axiosInstance.patch('/api/v1/students/' + id, jsonSend);
-         alert('lectura correctamente')
-         console.log("respuesta")
-     } catch (error) {
-         alert('Error en registro')
-     }
- } */
-
-
-/*  const BookList = () => {
-     const { axiosInstance } = useContext(AuthContext);
-     const [books, setBooks] = useState([])
-     const getBooks = () => axiosInstance.get('/api/v1/books');
- 
- } */
-
-// const ReadForm = (props) => {
 return (
-        <Form>
+        <Form onSubmit= {handleSubmit}>
             <FormGroup>
                 <Label>Nombre</Label>
                 <Input
@@ -98,7 +74,7 @@ return (
             </FormGroup>
             <FormGroup>
                 <Label for="exampleSelect">Escoge un libro </Label>
-                <Input type="select" name="select" id="exampleSelect">
+                <Input type="select" name="select" id="exampleSelect" onChange={changeBook}>
                 {books.map((book) => {
                     return <option
                     value= {book._id}> {book.title} </option> })}
