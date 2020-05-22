@@ -18,9 +18,9 @@ const StudentCard = (props) => {
   const history = useHistory()
 
   const newReading = () => {
-    console.log('push de botton')
-    console.log(props._id)
-   history.push('/new-reading-form', {id: props._id, firstName: props.first_name, lastName: props.last_name})
+    console.log('push de botton9')
+    console.log(props)
+   history.push('/new-reading-form', {id: props._id, firstName: props.first_name, lastName: props.last_name, dateOfBirth: props.dateOfBirth, readBooks: props.readBooks})
   }
 
  /*  const studentId = () => {
