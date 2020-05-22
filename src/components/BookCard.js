@@ -12,7 +12,6 @@ const BookCard = (props) => {
           <CardTitle>Autor:{props.author}</CardTitle>
           <CardSubtitle>Titulo:{props.title}</CardSubtitle>
           <CardSubtitle>Páginas: {props.pages}</CardSubtitle>
-          <Button>Nueva Lectura</Button>
         </CardBody>
       </Card>
     </div>
