@@ -1,9 +1,9 @@
 import Navigation from './Navigation';
-import Profile from './Profile';
+import StudentCard from './StudentCard';
 import Footer from './Footer';
 
 
-export {Navigation, Profile, Footer}
+export {Navigation, StudentCard, Footer}
 
 
 
