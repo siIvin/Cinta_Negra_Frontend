@@ -1,0 +1,110 @@
+.main-login-signup {
+    width: 40%;
+    margin: 50px auto;
+    border-radius: 25px;
+    background: #0085AD;
+    box-shadow: 0px 5px 40px 15px #004e66;
+}
+
+.dashboard {
+    margin: 70px 30px;
+    border-radius: 25px;
+    background: #0085AD;
+    box-shadow: 0px 5px 40px 15px #004e66;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dashboard .title {
+    display: block;
+    position: absolute;
+    font-size: 35px;
+    top: 50px;
+    left: 50px;
+    font-weight: 900;
+    text-decoration: overline;
+    text-transform: uppercase;
+    color: #004e66;
+}
+
+.dashboard .card {
+    flex-direction: row;
+    background-color: unset;
+    margin: 15px;
+    border: 3px solid rgba(0, 0, 0, .125);
+}
+
+.dashboard .form {
+    width: 55%;
+    margin: 30px auto;
+    padding-left: 10%;
+}
+
+.inner-banner {
+    margin: 0 auto;
+    margin-left: 20%;
+    padding: 30px;
+}
+
+.main-content {
+    height: -webkit-fill-available;
+    width: 50%;
+    margin: 50px auto;
+}
+
+.nav-link {
+    text-align: center;
+}
+
+.nav-link span {
+    display: block;
+    font-size: 14px;
+}
+
+.navbar-light .navbar-brand {
+    color: #fff !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #fff !important;
+}
+
+.cardImage.card-img-top {
+    width: 240px;
+    height: 150px;
+}
+
+.label {
+    font-weight: 900;
+    margin: 5px;
+}
+
+.form-group label {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.card-body .card-title {
+    margin: 5px 0;
+}
+
+.card-body .card-subtitle {
+    margin: 5px 0;
+}
+
+.card-wrapper-student {
+    display: flex;
+    flex-basis: 33%;
+}
+
+.card-wrapper-book {
+    display: flex;
+    flex-basis: 20%;
+}
+
+.welcome {
+    margin: 150px auto;
+    margin-left: 15%;
+    color: #0085AD;
+    font-weight: 900;
+}
