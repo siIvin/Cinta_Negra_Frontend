@@ -32,14 +32,14 @@ const StudentCard = (props) => {
 
 
   return (
-    <div>
+    <div className="card-wrapper-student">
       <Card>
-        <CardImg top width="100%" src={props.image_profile} alt="Card image cap" />
+        <CardImg top className="cardImage" src="/assets/318x180.svg" alt="Card image cap" />
         <CardBody>
-          <CardTitle>Nombre: {props.first_name}</CardTitle>
-          <CardSubtitle>Apellido: {props.last_name}</CardSubtitle>
-          <CardText>Edad: {studentAge(props.dateOfBirth)} años</CardText>
-          <Button onClick={newReading}>Nueva Lectura</Button>
+          <CardTitle><span className="label">Nombre:</span>{props.first_name}</CardTitle>
+          <CardSubtitle><span className="label">Apellido:</span>{props.last_name}</CardSubtitle>
+          <CardText><span className="label">Edad:</span>{studentAge(props.dateOfBirth)} años</CardText>
+          <Button size="sm" onClick = {newReading}>Nueva Lectura</Button>
         </CardBody>
       </Card>
     </div>
