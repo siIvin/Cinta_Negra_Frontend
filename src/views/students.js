@@ -30,7 +30,8 @@ const StudentList = () =>{
                 _id={student._id}
                 first_name= {student.first_name}
                 last_name ={student.last_name}
-                dateOfBirth = {student.dateOfBirth}/>
+                dateOfBirth = {student.dateOfBirth}
+                readBooks = {student.readBooks}/>
             )})}
         </React.Fragment>
     );
