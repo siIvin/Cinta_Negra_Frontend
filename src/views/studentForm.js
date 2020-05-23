@@ -21,7 +21,7 @@ const StudentForms = () => {
             first_name: firstName,
             last_name: lastName,
             dateOfBirth,
-            profile_img: profileImg,
+           // profile_img: profileImg,
             readBooks: []
         }
         try {
